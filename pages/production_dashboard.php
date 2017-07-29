@@ -127,12 +127,7 @@
                             <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                        
-                        <li>
-                            <a href="tables.html"><i class="fa fa-user fa-fw"></i> Profile</a>
-                        </li>
-                        <li>
-                            <a href="forms.html"><i class="fa fa-cog fa-fw"></i> Settings</a>
-                        </li>
+                        
                        
                     </ul>
                 </div>
