@@ -5,6 +5,8 @@ header('Content-Type: text/plain');
 if ($_SERVER['REQUEST_METHOD'] == 'HEAD') {
 	exit();
 }	
+session_start();
+$contact=$_SESSION['phone_no'];
 //Fetching the GET params
 $SmsSid = $_GET["CallSid"];
 $From = $_GET["From"];
@@ -23,11 +25,12 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-$search="SELECT phone_no,c_id FROM customer";
+$search="SELECT c_id FROM customer where phone_no=$contact";
 $result=$conn->query($search);
 if($result->num_rows>0){
-	if($phone==$From){
-	$sql = "INSERT INTO `orders` (`c_id`, `quantity` ) VALUES ("$cid","$quan")";
+	{
+		$cid=$row['c_id'];
+	$sql = "INSERT INTO `orders` ( `quantity` ) VALUES ("$quan") where c_id=$cid ";
 		if ($conn->query($sql) === TRUE) {
 		header("HTTP/1.1 200 OK");
     	echo "Registered for the Exotel session successfully";
