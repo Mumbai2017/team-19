@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Sakhi Portal</title>
+    <title>Production Portal</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -33,6 +33,8 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  
 </head>
 
 <body>
@@ -48,7 +50,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Sakhi Portal</a>
+                <a class="navbar-brand" href="index.html">Production Portal</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -242,19 +244,18 @@
                 <div class="col-lg-8">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
-                            
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Locate Sakhis
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            
+                            <div id="morris-area-chart"></div>
                         </div>
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Bar Chart Example
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Heat Map
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -270,59 +271,70 @@
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
-                    <div class="panel panel-default">
+                   <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> List of Orders:
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Inventory Bar Chart
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div class="list-group">
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> Order 1
-                                    <span class="pull-right text-muted small"><em>Status</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> Order 2
-                                    <span class="pull-right text-muted small"><em>Status</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> Order 3
-                                    <span class="pull-right text-muted small"><em>Status</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> Order 4
-                                    <span class="pull-right text-muted small"><em>Status</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> Order 5
-                                    <span class="pull-right text-muted small"><em>Status</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> Order 6
-                                    <span class="pull-right text-muted small"><em>Status</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> Order 7
-                                    <span class="pull-right text-muted small"><em>Status</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> Order 8
-                                    <span class="pull-right text-muted small"><em>Status</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> Order 9
-                                    <span class="pull-right text-muted small"><em>Status</em>
-                                    </span>
-                                </a>
+                            <div class="row">
+                                 
+                                <div class="col-lg-12">
+                                    <div id="chart_div"></div>
+
+                                        <script>
+                                        google.charts.load('current', {packages: ['corechart', 'bar']});
+                                        google.charts.setOnLoadCallback(drawTopX);
+
+                                        function drawTopX() {
+                                              var data = new google.visualization.DataTable();
+                                              data.addColumn('timeofday', 'Time of Day');
+                                              data.addColumn('number', 'Motivation Level');
+                                             
+                                              data.addRows([
+                                                [{v: [8, 0, 0], f: '8 am'}, 1],
+                                                [{v: [9, 0, 0], f: '9 am'}, 2],
+                                                [{v: [10, 0, 0], f:'10 am'}, 3],
+                                                [{v: [11, 0, 0], f: '11 am'}, 4],
+                                                [{v: [12, 0, 0], f: '12 pm'}, 5],
+                                                [{v: [13, 0, 0], f: '1 pm'}, 6],
+                                                [{v: [14, 0, 0], f: '2 pm'}, 7],
+                                                [{v: [15, 0, 0], f: '3 pm'}, 8],
+                                                [{v: [16, 0, 0], f: '4 pm'}, 9],
+                                                ]);
+
+                                              var options = {
+                                                chart: {
+                                                  title: 'Motivation and Energy Level Throughout the Day',
+                                                  subtitle: 'Based on a scale of 1 to 10'
+                                                },
+                                                axes: {
+                                                  x: {
+                                                    0: {side: 'top'}
+                                                  }
+                                                },
+                                                hAxis: {
+                                                  title: 'Time of Day',
+                                                  format: 'h:mm a',
+                                                  viewWindow: {
+                                                    min: [7, 30, 0],
+                                                    max: [17, 30, 0]
+                                                  }
+                                                },
+                                                vAxis: {
+                                                  title: 'Rating (scale of 1-10)'
+                                                }
+                                              };
+
+                                              var materialChart = new google.charts.Bar(document.getElementById('chart_div'));
+                                              materialChart.draw(data, options);
+                                            }                                    
+                                        </script>
+
+                                </div>
+                                <!-- /.col-lg-8 (nested) -->
                             </div>
+                            <!-- /.row -->
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -332,7 +344,7 @@
                 <div class="col-lg-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bell fa-fw"></i> Contact Sakhi
+                            <i class="fa fa-bell fa-fw"></i> Contact Sakhi:
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -356,17 +368,14 @@
                     <!-- /.panel -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Request Refill:
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Broadcast Message:
                         </div>
                         <div class="panel-body">
                             <form>
+                                  
                                   <div class="form-group">
-                                    <label for="name">Flavor:</label>
-                                    <input type="name" class="form-control" id="name">
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="msg">Quantity:</label>
-                                    <input type="name" class="form-control" id="name">
+                                    <label for="msg">Message:</label>
+                                    <textarea class="form-control" id="msg"></textarea>
                                   </div>
                                  
                                   <button type="submit" class="btn btn-default">Submit</button>

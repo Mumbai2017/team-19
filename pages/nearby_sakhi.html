@@ -1,0 +1,59 @@
+<html><head></head><body>
+<div id="map"></div>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 10,
+          center: new google.maps.LatLng(19.042004,73.015223),
+          mapTypeId: 'terrain'
+        });
+
+        var script = document.createElement('script');
+        script.src = 'sakhi_khakradata.js';
+        document.getElementsByTagName('head')[0].appendChild(script);
+        console.log("inside init map"+map);
+      }
+      
+      window.callback = function(results) {
+        for (var i = 0; i < results.sakhi.length; i++) {
+          var coords = results.sakhi[i].coordinates;
+          var latLng = new google.maps.LatLng(coords.lat,coords.long);
+          
+          var Stock = results.sakhi[i].available;
+          var iconColor="";
+          if(Stock.peppery_oats < 2 || Stock.methi < 2)
+              iconColor="red";
+          else
+              iconColor="green";
+          iconColor = "http://maps.google.com/mapfiles/ms/icons/" + iconColor + ".png";
+          var marker = new google.maps.Marker({
+            position: latLng,
+            map: map,
+            animation: google.maps.Animation.DROP,
+            icon: new google.maps.MarkerImage(iconColor)
+          });
+          var name=results.sakhi[i].name;
+          var place=results.sakhi[i].place;
+          name="Name: "+name+"<br>Place: "+place+"<br>peppery oats:"+Stock.peppery_oats+"<br>methi:"+Stock.methi;
+          attached_message(name,marker);
+          /*var infoWindow = new google.maps.InfoWindow({
+            content:name
+          });
+          infoWindow.open(map,marker);*/
+        }
+      }
+      function attached_message(name,marker){
+        var infoWindow = new google.maps.InfoWindow({
+            content:name
+          });
+          marker.addListener('click',function(){
+            infoWindow.open(marker.get('map'),marker);
+          });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCH9n_VGxvIMR3lToDV4pyK77pkEL_SDq8&callback=initMap">
+    </script>
+  </body>
+</html>
