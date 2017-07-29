@@ -6,28 +6,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'HEAD') {
 	exit();
 }	
 //Fetching the GET params
-$SmsSid = $_GET["CallSid"];
+
 $From = $_GET["From"];
 $flav=$_GET["digits"];
 
 $quan=str_replace('"', '', $quan);
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "sanisa_team19";
+
 //Create connection
 
 // Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli('localhost','root','root123','sanisa_team19');
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 $search="SELECT phone_no,c_id FROM customer";
 $result=$conn->query($search);
-
 if($result->num_rows>0){
-	if($phone==$From){
+while($row=$result->fetch_assoc())
+{
+	if($row['phone_no']==$From){
 	$sql = "INSERT INTO `orders` (`c_id`, `p_id` ) VALUES ("$cid","$flav")";
 		if ($conn->query($sql) === TRUE) {
 		header("HTTP/1.1 200 OK");
@@ -38,6 +36,7 @@ if($result->num_rows>0){
     	echo "Some error occured while registering"; 
 		}
 	}
+}
 }
 
 
