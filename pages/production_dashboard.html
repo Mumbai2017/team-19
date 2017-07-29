@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Sakhi Portal</title>
+    <title>Production Portal</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -48,7 +48,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Sakhi Portal</a>
+                <a class="navbar-brand" href="index.html">Production Portal</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -242,26 +242,7 @@
                 <div class="col-lg-8">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
-                            <div class="pull-right">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                        Actions
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a href="#">Action</a>
-                                        </li>
-                                        <li><a href="#">Another action</a>
-                                        </li>
-                                        <li><a href="#">Something else here</a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">Separated link</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Locate Sakhis
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -272,7 +253,7 @@
                     <!-- /.panel -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Bar Chart Example
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Heat Map
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -288,59 +269,20 @@
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
-                    <div class="panel panel-default">
+                   <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> List of Orders:
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Inventory Bar Chart
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div class="list-group">
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> Order 1
-                                    <span class="pull-right text-muted small"><em>Status</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> Order 2
-                                    <span class="pull-right text-muted small"><em>Status</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> Order 3
-                                    <span class="pull-right text-muted small"><em>Status</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> Order 4
-                                    <span class="pull-right text-muted small"><em>Status</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> Order 5
-                                    <span class="pull-right text-muted small"><em>Status</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> Order 6
-                                    <span class="pull-right text-muted small"><em>Status</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> Order 7
-                                    <span class="pull-right text-muted small"><em>Status</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> Order 8
-                                    <span class="pull-right text-muted small"><em>Status</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> Order 9
-                                    <span class="pull-right text-muted small"><em>Status</em>
-                                    </span>
-                                </a>
+                            <div class="row">
+                                 
+                                <div class="col-lg-12">
+                                    <div id="morris-bar-chart"></div>
+                                </div>
+                                <!-- /.col-lg-8 (nested) -->
                             </div>
+                            <!-- /.row -->
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -350,7 +292,7 @@
                 <div class="col-lg-4">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bell fa-fw"></i> Contact Sakhi
+                            <i class="fa fa-bell fa-fw"></i> Contact Sakhi:
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -374,17 +316,14 @@
                     <!-- /.panel -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Request Refill:
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Broadcast Message:
                         </div>
                         <div class="panel-body">
                             <form>
+                                  
                                   <div class="form-group">
-                                    <label for="name">Flavor:</label>
-                                    <input type="name" class="form-control" id="name">
-                                  </div>
-                                  <div class="form-group">
-                                    <label for="msg">Quantity:</label>
-                                    <input type="name" class="form-control" id="name">
+                                    <label for="msg">Message:</label>
+                                    <textarea class="form-control" id="msg"></textarea>
                                   </div>
                                  
                                   <button type="submit" class="btn btn-default">Submit</button>

@@ -79,37 +79,37 @@ $(function() {
     Morris.Bar({
         element: 'morris-bar-chart',
         data: [{
-            y: '2006',
-            a: 100,
-            b: 90
+            y: 'Breakfast',
+            a: 100
         }, {
-            y: '2007',
-            a: 75,
-            b: 65
+            y: 'Methi Masala',
+            a: 75
         }, {
-            y: '2008',
-            a: 50,
-            b: 40
+            y: 'Dahi Bajri Methi',
+            a: 50
         }, {
-            y: '2009',
-            a: 75,
-            b: 65
+            y: 'Nachni',
+            a: 75
         }, {
-            y: '2010',
-            a: 50,
-            b: 40
+            y: 'Jeera',
+            a: 50
         }, {
-            y: '2011',
-            a: 75,
-            b: 65
+            y: 'Peppery Oats',
+            a: 75
         }, {
-            y: '2012',
-            a: 100,
-            b: 90
-        }],
+            y: 'Khichdi',
+            a: 100
+        }, {
+            y: 'Punjabi Masala',
+            a: 100
+        }, {
+            y: 'Low Calorie',
+            a: 100
+        }
+        ],
         xkey: 'y',
-        ykeys: ['a', 'b'],
-        labels: ['Series A', 'Series B'],
+        ykeys: ['a'],
+        labels: ['Series A'],
         hideHover: 'auto',
         resize: true
     });
