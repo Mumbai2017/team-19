@@ -5,46 +5,33 @@ header('Content-Type: text/plain');
 if ($_SERVER['REQUEST_METHOD'] == 'HEAD') {
 	exit();
 }	
+session_start();
+$contact=$_SESSION['phone_no'];
 //Fetching the GET params
-<<<<<<< HEAD
+$SmsSid = $_GET["CallSid"];
+$From = $_GET["From"];
+$flav=$_GET["digits"];
 
-
-$contact=$_GET["digits"];
-
-$contact=str_replace('"', '', $contact);
+$flav=str_replace('"', '', $flav);
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "sanisa_team19";
-=======
-
-$From = $_GET["From"];
-$flav=$_GET["digits"];
-
-$quan=str_replace('"', '', $quan);
-
->>>>>>> de12ca784b7cfab8039a9165c0e709eb80296bb5
 //Create connection
 
 // Create connection
-$conn = new mysqli('localhost','root','root123','sanisa_team19');
+$conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-$search="SELECT phone_no FROM customer";
+$search="SELECT c_id FROM customer where phone_no=$contact";
 $result=$conn->query($search);
-<<<<<<< HEAD
-if($row=$result->fetch_assoc()){
-	if($row['phone_no']==$contact){
-=======
 if($result->num_rows>0){
-while($row=$result->fetch_assoc())
-{
-	if($row['phone_no']==$From){
-	$sql = "INSERT INTO `orders` (`c_id`, `p_id` ) VALUES ("$cid","$flav")";
+	{
+		$cid=$row['c_id'];
+	$sql = "INSERT INTO `orders` ( `p_id` ) VALUES ("$flav") where c_id=$cid ";
 		if ($conn->query($sql) === TRUE) {
->>>>>>> de12ca784b7cfab8039a9165c0e709eb80296bb5
 		header("HTTP/1.1 200 OK");
     	echo "Registered for the Exotel session successfully";
 		} 
@@ -53,7 +40,6 @@ while($row=$result->fetch_assoc())
     	echo "Some error occured while registering"; 
 		}
 	}
-}
 }
 
 
