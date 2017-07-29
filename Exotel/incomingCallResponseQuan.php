@@ -24,9 +24,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 $search="SELECT phone_no,c_id FROM customer";
-$result=mysqli_execute($conn,$search) or die(mysql_error());
-$rows=mysqli_num_rows($result)
-if($rows>0){
+$result=$conn->query($search);
+if($result->num_rows>0){
 	if($phone==$From){
 	$sql = "INSERT INTO `orders` (`c_id`, `quantity` ) VALUES ("$cid","$quan")";
 		if ($conn->query($sql) === TRUE) {
