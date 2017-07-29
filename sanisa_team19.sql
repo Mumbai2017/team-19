@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 29, 2017 at 12:46 PM
+-- Generation Time: Jul 29, 2017 at 02:26 PM
 -- Server version: 10.1.24-MariaDB
 -- PHP Version: 7.1.6
 
@@ -87,7 +87,14 @@ CREATE TABLE `product` (
 
 INSERT INTO `product` (`p_id`, `p_name`, `p_cost`) VALUES
 (1, 'Breakfast', 100),
-(2, 'Methi Masala', 150);
+(2, 'Methi Masala', 150),
+(3, 'Dahi Bajri Methi', 100),
+(4, 'Nachni', 150),
+(5, 'Jeera', 100),
+(6, 'Peppery Oats', 150),
+(7, 'Khichdi', 100),
+(8, 'Panjabi Masala', 150),
+(9, 'Low Calorie', 100);
 
 -- --------------------------------------------------------
 
@@ -188,7 +195,7 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `p_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `sakhi`
 --
