@@ -364,62 +364,20 @@ $k++;
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
+                            
+                        <?php 
+                        $conn = new mysqli('localhost','root','','sanisa_team19');
+                        $qu = "Select * from orders";
+                        $result = $conn->query($qu);
+                        foreach ($result as $key => $row) { ?>
                             <div class="list-group">
                                 <div class="list-group-item">
                                     <a class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal2"></a>
-                                    Order 1
-                                    <span class="pull-right text-muted small"><em>Status</em>
+                                    Order <?php echo $row['o_id'];?>
+                                    <span class="pull-right text-muted small"><em>Status: <?php echo $row['status']?></em>
                                     </span>
                                 </div>
-                                <div class="list-group-item">
-                                    <a class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal2"></a>
-                                    Order 2
-                                    <span class="pull-right text-muted small"><em>Status</em>
-                                    </span>
-                                </div>
-                                <div class="list-group-item">
-                                    <a class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal2"></a>
-                                    Order 3
-                                    <span class="pull-right text-muted small"><em>Status</em>
-                                    </span>
-                                </div>
-                                <div class="list-group-item">
-                                    <a class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal2"></a>
-                                    Order 4
-                                    <span class="pull-right text-muted small"><em>Status</em>
-                                    </span>
-                                </div>
-                                <div class="list-group-item">
-                                    <a class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal2"></a>
-                                    Order 5
-                                    <span class="pull-right text-muted small"><em>Status</em>
-                                    </span>
-                                </div>
-                                <div class="list-group-item">
-                                    <a class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal2"></a>
-                                    Order 6
-                                    <span class="pull-right text-muted small"><em>Status</em>
-                                    </span>
-                                </div>
-                                <div class="list-group-item">
-                                    <a class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal2"></a>
-                                    Order 7
-                                    <span class="pull-right text-muted small"><em>Status</em>
-                                    </span>
-                                </div>
-                                <div class="list-group-item">
-                                    <a class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal2"></a>
-                                    Order 8
-                                    <span class="pull-right text-muted small"><em>Status</em>
-                                    </span>
-                                </div>
-                                <div class="list-group-item">
-                                    <a class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal2"></a>
-                                    Order 9
-                                    <span class="pull-right text-muted small"><em>Status</em>
-                                    </span>
-                                </div>
-                            </div>
+                            </div><?php }?>
                             <div class="modal fade" id="myModal2" role="dialog">
                             <div class="modal-dialog modal-sm">
                               <div class="modal-content">
@@ -428,15 +386,15 @@ $k++;
                                   <h4 class="modal-title">Order Details:</h4>
                                 </div>
                                 <div class="modal-body">
-                                <p>
-                                Name:<br>
-                                Address:<br>
-                                Contact:<br>
-                                Status:<br>
-                                </p>
+
+                        <p>
+                                Name: ABC<br>
+                                Address: Mulund<br>
+                                Contact: 1234567891<br>
+                                Status: Pending approval<br>
+                                </p>  
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Accept</button>
                                 </div>
-                                  
                               </div>
                             </div>
                           </div>
