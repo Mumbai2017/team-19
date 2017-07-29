@@ -3,7 +3,7 @@
  if($conn->connect_error)
  	die("connection failed");
  else
- 	echo "connected";
+ 	echo "connected"
 
 ?>
 
