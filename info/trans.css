@@ -1,0 +1,57 @@
+		.bot{
+			width: 90%;
+			margin: 0 auto;
+			margin-top: 3%;
+			padding: 5px;
+			border: 5px solid lavender;
+		}
+		#te{
+			font-family: 'Merienda One', cursive;
+			text-shadow: 5px 5px 5px teal;
+			padding: 10px;
+			text-align: center;
+			font-size: 30px;
+			background-color: white;
+			filter: opacity(80%);
+			width: 50%;
+			margin: 0 auto;
+			margin-top: 20px;
+		}
+
+table{
+	margin: 0 auto;
+	width: 90%;
+}
+ th, td{
+	border: 2px solid black;
+	padding: 10px;
+	margin: 0 auto;
+	width: 20%;
+	text-align: center;
+}
+form{
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 20px;
+	border: 2px solid black;
+	background-color: white;
+	filter: opacity(80%);
+}
+input{float: left;
+zoom:2.5;}
+
+#a1{
+
+	margin-left: 85px; 
+	width: 90%;
+	border: 1px solid black;
+	font-size: 20px;
+}
+#sub{
+			background-color: black;
+			color: white;
+			padding: 10px;
+			font-family: 'Merienda One', cursive;
+			font-size: 25px;
+			zoom: 1;
+		
