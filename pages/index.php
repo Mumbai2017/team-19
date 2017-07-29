@@ -38,12 +38,6 @@ $k++;
 
 
 ?>
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -153,7 +147,7 @@ $k++;
                 
                 <!-- /.dropdown -->
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="../logout.php">
                         <i class=" glyphicon glyphicon-log-out"></i> 
                     </a>
                     
@@ -202,7 +196,7 @@ $k++;
                                     <i class="fa fa-comments fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge"><?php echo $i; ?></div>
+                                    <div class="huge">26</div>
                                     <div>New Orders!</div>
                                 </div>
                             </div>
@@ -224,7 +218,7 @@ $k++;
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge"><?php echo $j; ?></div>
+                                    <div class="huge">12</div>
                                     <div>Pending Orders!</div>
                                 </div>
                             </div>
@@ -246,7 +240,7 @@ $k++;
                                     <i class="fa fa-shopping-cart fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge"><?php echo $k; ?></div>
+                                    <div class="huge">124</div>
                                     <div>Delivered Orders!</div>
                                 </div>
                             </div>
@@ -288,30 +282,12 @@ $k++;
                 <div class="col-lg-8">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Area Chart Example
-                            <div class="pull-right">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
-                                        Actions
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu pull-right" role="menu">
-                                        <li><a href="#">Action</a>
-                                        </li>
-                                        <li><a href="#">Another action</a>
-                                        </li>
-                                        <li><a href="#">Something else here</a>
-                                        </li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">Separated link</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                            <i class="fa fa-bar-chart-o fa-fw"></i>Find Near By Sakhi 
+                            
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div id="morris-area-chart"></div>
+                            <a href="abc.html">View Nearby Sakhi</a>
                         </div>
                         <!-- /.panel-body -->
                     </div>
