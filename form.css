@@ -1,5 +1,5 @@
 .form-group{
-	width: 80%;
+	width: 90%;
 	margin: 0 auto;
 	margin-bottom: 2%;
 	margin-top: 2%;
@@ -22,6 +22,7 @@ form{
 	padding: 5%;
 	margin: 0 auto;
 	filter: opacity(80%);
+	width: 80%;
 }/*
 body{
 	background: url(img/wo.jpg);

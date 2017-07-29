@@ -33,7 +33,7 @@ if($email==$ADMIN_EMAIL and $password==$ADMIN_PASSWORD){
 
 elseif ($usertab!=null){
     
-        header('location: ../pages/index.html');
+        header('location: ../pages/index.php');
         foreach ($usertab as $key => $row) {
             // print_r($row['user_id']);
             setcookie('username', $row['s_username'], time()+(86400*10), '/');

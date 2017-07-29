@@ -43,8 +43,7 @@
  -->
 </head>
 <body>
-            <!-- <?php if (isset($_COOKIE['name'])) { header('location: index.php');} ?> -->
-
+        
               <h2>Welcome to Sanisa</h2><br><br>
 
 <div id="cont">
