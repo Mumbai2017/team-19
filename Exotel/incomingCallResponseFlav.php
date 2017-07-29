@@ -5,12 +5,14 @@ header('Content-Type: text/plain');
 if ($_SERVER['REQUEST_METHOD'] == 'HEAD') {
 	exit();
 }	
+session_start();
+$contact=$_SESSION['phone_no'];
 //Fetching the GET params
+$SmsSid = $_GET["CallSid"];
+$From = $_GET["From"];
+$flav=$_GET["digits"];
 
-
-$contact=$_GET["digits"];
-
-$contact=str_replace('"', '', $contact);
+$flav=str_replace('"', '', $flav);
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -23,10 +25,13 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-$search="SELECT phone_no FROM customer";
+$search="SELECT c_id FROM customer where phone_no=$contact";
 $result=$conn->query($search);
-if($row=$result->fetch_assoc()){
-	if($row['phone_no']==$contact){
+if($result->num_rows>0){
+	{
+		$cid=$row['c_id'];
+	$sql = "INSERT INTO `orders` ( `p_id` ) VALUES ("$flav") where c_id=$cid ";
+		if ($conn->query($sql) === TRUE) {
 		header("HTTP/1.1 200 OK");
     	echo "Registered for the Exotel session successfully";
 		} 
@@ -35,7 +40,6 @@ if($row=$result->fetch_assoc()){
     	echo "Some error occured while registering"; 
 		}
 	}
-}
 }
 
 
