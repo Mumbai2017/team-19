@@ -29,8 +29,9 @@ $search="SELECT c_id FROM customer where phone_no=$contact";
 $result=$conn->query($search);
 if($result->num_rows>0){
 	{
+
 		$cid=$row['c_id'];
-	$sql = "INSERT INTO `orders` ( `quantity` ) VALUES ("$quan") where c_id=$cid ";
+		$sql = "UPDATE TABLE `orders` SET `quantity`=$quan WHERE `c_id`=$cid";
 		if ($conn->query($sql) === TRUE) {
 		header("HTTP/1.1 200 OK");
     	echo "Registered for the Exotel session successfully";

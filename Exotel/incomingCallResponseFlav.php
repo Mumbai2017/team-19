@@ -25,12 +25,9 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-$search="SELECT c_id FROM customer where phone_no=$contact";
-$result=$conn->query($search);
-if($result->num_rows>0){
-	{
+
 		$cid=$row['c_id'];
-	$sql = "INSERT INTO `orders` ( `p_id` ) VALUES ("$flav") where c_id=$cid ";
+	$sql = "INSERT INTO `orders` ( `c_id`,`p_id` ) VALUES ('$cid','$flav')";
 		if ($conn->query($sql) === TRUE) {
 		header("HTTP/1.1 200 OK");
     	echo "Registered for the Exotel session successfully";
@@ -39,7 +36,7 @@ if($result->num_rows>0){
 		header("HTTP/1.1 501 NOTOK");
     	echo "Some error occured while registering"; 
 		}
-	}
+	
 }
 
 
