@@ -1,0 +1,6 @@
+## Extra Add on features for future implementation 
+
+1. Notification to sakhi for updating inventory
+2. Notification to increase the date if no sakhi in 2-3km radius has sufficient inventory 
+3. Customer gets UI for Feedback and rating of Product
+4. 
