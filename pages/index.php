@@ -1,5 +1,5 @@
 <?php
-$conn = new mysqli('localhost','root','','sanisa_team19');
+$conn = new mysqli('localhost','root','','team_19');
 $sql = "SELECT * FROM orders where status=1";
 $result = $conn->query($sql);
 $i = 0;
@@ -54,6 +54,11 @@ $k++;
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- jQuery -->
+    <script src="../js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../js/bootstrap.min.js"></script>
     <!-- MetisMenu CSS -->
     <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
@@ -196,7 +201,7 @@ $k++;
                                     <i class="fa fa-comments fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
+                                    <div class="huge"><?php echo $i;?></div>
                                     <div>New Orders!</div>
                                 </div>
                             </div>
@@ -218,7 +223,7 @@ $k++;
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">12</div>
+                                    <div class="huge"><?php echo $j;?></div>
                                     <div>Pending Orders!</div>
                                 </div>
                             </div>
@@ -240,7 +245,7 @@ $k++;
                                     <i class="fa fa-shopping-cart fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">124</div>
+                                    <div class="huge"><?php echo $k;?></div>
                                     <div>Delivered Orders!</div>
                                 </div>
                             </div>
@@ -301,7 +306,50 @@ $k++;
                             <div class="row">
                                  
                                 <div class="col-lg-12">
-                                    <div id="morris-bar-chart"></div>
+                                    
+
+                                        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>  
+                                       <script type="text/javascript">  
+
+                                  // Load the Visualization API and the corechart package.
+                                  google.charts.load('current', {'packages':['corechart']});
+
+                                  // Set a callback to run when the Google Visualization API is loaded.
+                                  google.charts.setOnLoadCallback(drawChart);
+
+                                  // Callback that creates and populates a data table,
+                                  // instantiates the pie chart, passes in the data and
+                                  // draws it.
+                                  function drawChart() {
+
+                                    // Create the data table.
+                                    var data = google.visualization.arrayToDataTable([
+                                    ['Products','Quantity'],
+                                    <?php
+                                $conn = new mysqli('localhost','root','','team_19');
+
+                                    $query = "SELECT p_id, s_quantity FROM sakhi_inventory;";
+                                    $result = $conn->query($query);
+                                    while($row=mysqli_fetch_array($result)){
+                                        echo "['".$row['p_id']."',".$row['s_quantity']."],";    
+                                    }
+                                    ?>
+                                    ]);
+
+                                    // Set chart options
+                                    var options = {'title':'Products vs Quantity'};
+
+                                    // Instantiate and draw our chart, passing in some options.
+                                    var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+                                    chart.draw(data, options);
+                                  }
+                                  jQuery(document).ready(function(){
+                                      jQuery(window).resize(function(){
+                                          drawChart();
+                                      });
+                                  });
+                                </script>
+                                    <div id="chart_div" style="width:100%; height:100%"></div>
                                 </div>
                                 <!-- /.col-lg-8 (nested) -->
                             </div>
@@ -317,52 +365,81 @@ $k++;
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="list-group">
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> Order 1
+                                <div class="list-group-item">
+                                    <a class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal2"></a>
+                                    Order 1
                                     <span class="pull-right text-muted small"><em>Status</em>
                                     </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> Order 2
+                                </div>
+                                <div class="list-group-item">
+                                    <a class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal2"></a>
+                                    Order 2
                                     <span class="pull-right text-muted small"><em>Status</em>
                                     </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> Order 3
+                                </div>
+                                <div class="list-group-item">
+                                    <a class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal2"></a>
+                                    Order 3
                                     <span class="pull-right text-muted small"><em>Status</em>
                                     </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> Order 4
+                                </div>
+                                <div class="list-group-item">
+                                    <a class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal2"></a>
+                                    Order 4
                                     <span class="pull-right text-muted small"><em>Status</em>
                                     </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> Order 5
+                                </div>
+                                <div class="list-group-item">
+                                    <a class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal2"></a>
+                                    Order 5
                                     <span class="pull-right text-muted small"><em>Status</em>
                                     </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> Order 6
+                                </div>
+                                <div class="list-group-item">
+                                    <a class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal2"></a>
+                                    Order 6
                                     <span class="pull-right text-muted small"><em>Status</em>
                                     </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> Order 7
+                                </div>
+                                <div class="list-group-item">
+                                    <a class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal2"></a>
+                                    Order 7
                                     <span class="pull-right text-muted small"><em>Status</em>
                                     </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> Order 8
+                                </div>
+                                <div class="list-group-item">
+                                    <a class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal2"></a>
+                                    Order 8
                                     <span class="pull-right text-muted small"><em>Status</em>
                                     </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-comment fa-fw"></i> Order 9
+                                </div>
+                                <div class="list-group-item">
+                                    <a class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal2"></a>
+                                    Order 9
                                     <span class="pull-right text-muted small"><em>Status</em>
                                     </span>
-                                </a>
+                                </div>
                             </div>
+                            <div class="modal fade" id="myModal2" role="dialog">
+                            <div class="modal-dialog modal-sm">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h4 class="modal-title">Order Details:</h4>
+                                </div>
+                                <div class="modal-body">
+                                <p>
+                                Name:<br>
+                                Address:<br>
+                                Contact:<br>
+                                Status:<br>
+                                </p>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Accept</button>
+                                </div>
+                                  
+                              </div>
+                            </div>
+                          </div>
                         </div>
                         <!-- /.panel-body -->
                     </div>
