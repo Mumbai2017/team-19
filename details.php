@@ -17,25 +17,25 @@
       <div class="form-group">
       <label class="control-label col-sm-2" for="email">contact:</label>
       <div class="col-sm-10">
-        <input type="number" class="form-control" id="phone_no" placeholder="Enter Phone" name="phone_no">
+        <input type="number" class="form-control" id="phone_no" placeholder="Enter Phone" name="phone_no" required>
       </div>
     </div>
       <div class="form-group">
       <label class="control-label col-sm-2" for="email">Name : </label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="c_name" placeholder="Enter name" name="c_name">
+        <input type="text" class="form-control" id="c_name" placeholder="Enter name" name="c_name" required>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Address:</label>
       <div class="col-sm-10">          
-        <input type="textarea" class="form-control" id="c_address" placeholder="Enter address" name="c_address">
+        <input type="textarea" class="form-control" id="c_address" placeholder="Enter address" name="c_address" required>
       </div>
     </div>
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Landmark:</label>
       <div class="col-sm-10">          
-        <input type="textarea" class="form-control" id="landmark" placeholder="Enter Landmark" name="landmark">
+        <input type="textarea" class="form-control" id="landmark" placeholder="Enter Landmark" name="landmark" required>
       </div>
     </div>
     <div class="form-group">        

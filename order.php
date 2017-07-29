@@ -53,20 +53,24 @@
       <div class="form-group">
       <label class="control-label col-sm-2">Choose Flavours : </label>
           <div class="col-sm-10">
-             <button class="btn btn-default dropdown-toggle" type="button" id="menu" data-toggle="dropdown">Choose Flavours
+              <div class="col-sm-6">
+              <input type="TextBox" ID="p_id" Class="form-control" >
+              
+             <button class="btn btn-default dropdown-toggle" type="button" id="menubtn" data-toggle="dropdown">Choose Flavours
             <span class="caret"></span></button>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+            <ul id="menu" class="dropdown-menu" role="menu" aria-labelledby="menu1">
               <li role="presentation"><a role="menuitem" tabindex="-1" >khakhra 1</a></li>
               <li role="presentation"><a role="menuitem" tabindex="-1" >khakhra 2</a></li>
               <li role="presentation"><a role="menuitem" tabindex="-1">khakhra 3</a></li>
               <li role="presentation"><a role="menuitem" tabindex="-1" >khakhra 4</a></li>
             </ul>
+              </div>
           </div>
       </div>
       <div class="form-group">
       <label class="control-label col-sm-2" for="email">Quantity : </label>
       <div class="col-sm-6">
-        <input type="number" class="form-control" id="quantity" placeholder="Enter quantity" name="quantity"/>
+        <input type="number" class="form-control" id="quantity" placeholder="Enter quantity" name="quantity" required>
       </div>
     </div>
     <div class="form-group">        
@@ -77,8 +81,8 @@
   </form>
     
     <script>
-        $('#demolist li').on('click', function(){
-        $('#datebox').val($(this).text());
+        $('#menu li a').on('click', function(){
+        $('#p_id').val($(this).html());
     });
     </script>
 
