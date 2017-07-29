@@ -12,7 +12,7 @@
 <body>
 
 <div class="container" >
-  <h2>Sakhi Registration</h2>
+  <h2>Become a Volunteer - Join Us</h2>
   <form class="form-horizontal" action="/action_page.php">
       
     </div>
