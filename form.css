@@ -1,0 +1,19 @@
+.form-group{
+	width: 80%;
+	margin: 0 auto;
+	margin-bottom: 2%;
+	margin-top: 2%;
+}
+h2{
+	text-align: center;
+	margin: 0 auto;
+	padding: 5%;
+	background-color: black;
+	color: white;
+	width: 100%;
+}
+.btn{
+	margin: 0 auto;
+	background-color: black;
+	color: white;
+}

@@ -49,21 +49,14 @@
     </div>
 
   </div>
-  <form class="form-horizontal" action="/orders_confirm.php">
+  <form class="form-horizontal" action="php/orders_confirmed.php" method="POST">
       <div class="form-group">
       <label class="control-label col-sm-2">Choose Flavours : </label>
           <div class="col-sm-10">
               <div class="col-sm-6">
-              <input type="TextBox" ID="p_id" Class="form-control" >
-              
-             <button class="btn btn-default dropdown-toggle" type="button" id="menubtn" data-toggle="dropdown">Choose Flavours
-            <span class="caret"></span></button>
-            <ul id="menu" class="dropdown-menu" role="menu" aria-labelledby="menu1">
-              <li role="presentation"><a role="menuitem" tabindex="-1" >khakhra 1</a></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" >khakhra 2</a></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1">khakhra 3</a></li>
-              <li role="presentation"><a role="menuitem" tabindex="-1" >khakhra 4</a></li>
-            </ul>
+              <label class="checkbox-inline"><input type="checkbox" name="p_id" value="1">Option 1</label>
+              <label class="checkbox-inline"><input type="checkbox" name="p_id" value="2">Option 2</label>
+              <label class="checkbox-inline"><input type="checkbox" name="p_id" value="3">Option 3</label>
               </div>
           </div>
       </div>
@@ -75,7 +68,7 @@
     </div>
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10">
-        <a type="submit" class="btn btn-default">Submit</a>
+        <button type="submit" class="btn btn-default">Submit</button>
       </div>
     </div>
   </form>

@@ -7,12 +7,13 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="form.css">
 </head>
 <body>
 
 <div class="container" >
   <h2>Customer Registration</h2>
-  <form class="form-horizontal" action="/action_page.php">
+  <form class="form-horizontal" action="php/customer_details.php">
       
       <div class="form-group">
       <label class="control-label col-sm-2" for="email">contact:</label>
@@ -40,7 +41,7 @@
     </div>
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10">
-        <a href="customer_details.php" type="submit" class="btn btn-default">Submit</a>
+        <a href="php/customer_details.php" type="submit" class="btn btn-default">Submit</a>
       </div>
     </div>
   </form>
