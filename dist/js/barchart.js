@@ -1,4 +1,4 @@
-var data = [{"food":"Hotdogs","quantity":24},{"food":"Tacos","quantity":15},{"food":"Pizza","quantity":3},{"food":"Double Quarter Pounders with Cheese","quantity":2},{"food":"Omelets","quantity":30},{"food":"Falafel and Hummus","quantity":21},{"food":"Soylent","quantity":13},{"food":"Soylent","quantity":13},{"food":"Soylent","quantity":13}];
+var data = [{"food":"Methi Masala","quantity":24},{"food":"Dahi Bajri Methi","quantity":15},{"food":"Nachni","quantity":3},{"food":"Jeera","quantity":2},{"food":"Khichdi","quantity":30},{"food":"Punjabi Masala","quantity":21},{"food":"Low Calorie","quantity":13},{"food":"Breakfast","quantity":13},{"food":"Peppery Oats","quantity":13}];
 var margin = {top:10, right:10, bottom:90, left:10};
 
 var width = 960 - margin.left - margin.right;
