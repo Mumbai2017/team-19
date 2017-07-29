@@ -12,36 +12,39 @@
 <body>
 
 <div class="container" >
-  <h2>Customer Registration</h2>
-  <form class="form-horizontal" action="php/customer_details.php">
+  <h2>Sakhi Registration</h2>
+  <form class="form-horizontal" action="/action_page.php">
       
-      <div class="form-group">
-      <label class="control-label col-sm-2" for="email">contact:</label>
-      <div class="col-sm-10">
-        <input type="number" class="form-control" id="phone_no" placeholder="Enter Phone" name="phone_no" required>
-      </div>
     </div>
       <div class="form-group">
       <label class="control-label col-sm-2" for="email">Name : </label>
       <div class="col-sm-10">
-        <input type="text" class="form-control" id="c_name" placeholder="Enter name" name="c_name" required>
+        <input type="text" class="form-control" id="s_name" placeholder="Enter name" name="s_name" required>
       </div>
-    </div>
+      </div><br>
+      <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Username : </label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="s_username" placeholder="Enter username" name="s_username" required>
+      </div>
+    </div><br>
+          <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Password: </label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="s_password" placeholder="Enter Password" name="s_password" required>
+      </div>
+    </div><br>
+
     <div class="form-group">
       <label class="control-label col-sm-2" for="pwd">Address:</label>
       <div class="col-sm-10">          
         <input type="textarea" class="form-control" id="c_address" placeholder="Enter address" name="c_address" required>
       </div>
-    </div>
+    </div><br>
     <div class="form-group">
-      <label class="control-label col-sm-2" for="pwd">Landmark:</label>
-      <div class="col-sm-10">          
-        <input type="textarea" class="form-control" id="landmark" placeholder="Enter Landmark" name="landmark" required>
-      </div>
-    </div>
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10">
-        <a href="php/customer_details.php" type="submit" class="btn btn-default">Submit</a>
+        <button type="submit" class="btn btn-default">Submit</button>
       </div>
     </div>
   </form>

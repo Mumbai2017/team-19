@@ -1,21 +1,21 @@
 <?php
-include("connection.php");
-if(isset($_POST['phone_no'])
+session_start();
+  
+
+// include("connection.php");
+ $conn = new mysqli('localhost','root','','sanisa_team19');
+
+if(isset($_POST['phone_no']))
 {
 	$phone = $_POST['phone_no'];
+	$_SESSION['phone']=$phone;
+	 
 	$sql = "SELECT * FROM customer WHERE phone_no='$phone'";
-	$result = $conn->query($sql);
-	session_start();
-	$_SESSION['phone'] = $phone; 
-	if($result->num_rows >0)
-{
-    header('location:orders_confirm.php');
-}
-	
-}
+	$result = $conn->query($sql);	
+	if($result->num_rows > 0)
+    header('location: ../order.php');
 else
-{
-	header('location:customer_details.php');
+	header('location: ../details.php');
 }
 
 ?>

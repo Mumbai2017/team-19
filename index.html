@@ -49,7 +49,7 @@
                                 <a class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal"> <span class="network-name">Place Order</span></a>
                             </li>
                             <li>
-                                <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><span class="network-name">Become Sakhi</span></a>
+                                <a href="volunteer.php" class="btn btn-default btn-lg"><span class="network-name">Become Sakhi</span></a>
                             </li>
                             <li>
                                 <a href="#" class="btn btn-default btn-lg"> <span class="network-name">Sakhi Login</span></a>
@@ -74,9 +74,9 @@
           <h4 class="modal-title">Please Enter your contact</h4>
         </div>
         <div class="modal-body">
-        <form class="form-horizontal" action="php/customer_phone_check.php">
+        <form class="form-horizontal" action="php/customer_phone_check.php" method="POST">
           <p><input type="number" class="form-control" id="phone_no" placeholder="Enter Phone" name="phone_no" required>
-          <br><a class="btn btn-default" >Submit</a>
+          <br><button type="Submit" class="btn btn-default">Submit</button>
           </p>
         </form>
 
