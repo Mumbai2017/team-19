@@ -18,14 +18,13 @@ $password = "";
 $dbname = "sanisa_team19";
 
 
-$From = $_GET["From"];
 
 
 
 //Create connection
 
-// Create connection
-$conn = new mysqli('localhost','root','root123','sanisa_team19');
+// Create connectio
+$conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
