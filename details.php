@@ -16,7 +16,7 @@
   <form class="form-horizontal" action="php/customer_details.php">
       
       <div class="form-group">
-      <label class="control-label col-sm-2" for="email">contact:</label>
+      <label class="control-label col-sm-2" for="email">Contact no:</label>
       <div class="col-sm-10">
         <input type="number" class="form-control" id="phone_no" placeholder="Enter Phone" name="phone_no" required>
       </div>
