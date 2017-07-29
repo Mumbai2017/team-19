@@ -1,27 +1,5 @@
-<?php
- $conn = new mysqli('localhost','root','','sanisa_team19');
- session_start();
-
-$phone = $_SESSION['phone'];
-// print_r($phone);
-$quantity = $_POST['quantity'];
-$pid = $_POST['p_id'];
-// $sql1 = "Select c_id from customer where phone_no = '$phone'";
-// $cid = $conn->query($sql1);
-// while ($row = $cid->fetch_assoc()) {
-//     echo $row['c_id'];
-
-// $cid1 = mysqli_fetch_assoc($cid);
-// echo $cid;
-// $sql2 = "Select * from product where p_id = '$pid'";
-// $run = $conn->query($sql2);
-// $run1 = (int)$run['p_cost'];
-// $total = $quantity * $run; 
-echo 'Order Placed';
-$sql = "Insert into orders(c_id, p_id, quantity, status) values ('1', '$pid', '$quantity', 0)";
-$conn->query($sql);
-// }
-
+<?php 
+      $conn = new mysqli('localhost','root','','sanisa_team19');
       $sql = "SELECT * FROM customer WHERE c_id=1";
       $result = $conn->query($sql);
       if($result->num_rows >0){
@@ -46,12 +24,37 @@ $conn->query($sql);
               
           }
           
-          $column = implode('","',$column);  
+          $column = implode('","',$column);
+        
+          
+          
+          
+            
+        
       }
+      
+      ?>
 
-?>
+<!DOCTYPE html>
+<html>
+<!--refer https://developers.google.com/maps/documentation/javascript/examples/distance-matrix -->
+<head>
+  <title>Distance Matrix service</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
 
-<script type="text/javascript">
+<body>
+  <div id="right-panel">
+    <input type="text" id="txtGeo" />
+    <button id="distance">Calculate Distance</button>
+    <div>
+      <strong>Results</strong>
+    </div>
+    <div id="output"></div>
+  </div>
+  <script>
+      
+    //created as Global just to debug in console
     var source = "<?php echo $c_address?>";
     //var destination= 
     var results;
@@ -102,3 +105,6 @@ $conn->query($sql);
   </script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMxdGmGa60mA7EV-iPYauPrj9XB35qA6Q">
   </script>
+</body>
+
+</html>
