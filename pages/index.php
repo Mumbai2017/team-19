@@ -1,19 +1,45 @@
 <?php
 $conn = new mysqli('localhost','root','','sanisa_team19');
-$sql = "SELECT COUNT(status) FROM orders WHERE status=1";
-$sql1= "SELECT COUNT(status) FROM orders WHERE status=2";
-$sql2 = "SELECT COUNT(status) FROM orders WHERE status=3";
+$sql = "SELECT * FROM orders where status=1";
 $result = $conn->query($sql);
+$i = 0;
+if($result->num_rows >0)
+{
+    while($row = $result->fetch_assoc())
+    {
+
+$i++;
+}
+}
+
+$sql1 = "SELECT * FROM orders where status=2";
 $result1 = $conn->query($sql1);
+$j = 0;
+if($result1->num_rows >0)
+{
+    while($row = $result1->fetch_assoc())
+    {
+
+$j++;
+}
+}
+
+$sql2 = "SELECT * FROM orders where status=3";
 $result2 = $conn->query($sql2);
+$k = 0;
+if($result2->num_rows >0)
+{
+    while($row = $result2->fetch_assoc())
+    {
 
-echo $result;
-echo $result1;
-echo $result2;
-
+$k++;
+}
+}
 
 
 ?>
+
+
 
 
 
@@ -176,7 +202,7 @@ echo $result2;
                                     <i class="fa fa-comments fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
+                                    <div class="huge"><?php echo $i; ?></div>
                                     <div>New Orders!</div>
                                 </div>
                             </div>
@@ -198,7 +224,7 @@ echo $result2;
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">12</div>
+                                    <div class="huge"><?php echo $j; ?></div>
                                     <div>Pending Orders!</div>
                                 </div>
                             </div>
@@ -220,7 +246,7 @@ echo $result2;
                                     <i class="fa fa-shopping-cart fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">124</div>
+                                    <div class="huge"><?php echo $k; ?></div>
                                     <div>Delivered Orders!</div>
                                 </div>
                             </div>
