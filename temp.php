@@ -45,12 +45,7 @@
 
 <body>
   <div id="right-panel">
-    <input type="text" id="txtGeo" />
-    <button id="distance">Calculate Distance</button>
-    <div>
-      <strong>Results</strong>
-    </div>
-    <div id="output"></div>
+    <input type="number" name="index" id="index">
   </div>
   <script>
       
@@ -94,6 +89,8 @@
                 }
               }
         console.log("Distance : "+min+", index : "+index);
+            var txtbox = document.getElementById("index");
+                txtbox.innerHTML=index;
             }
           });
         }, function () {
