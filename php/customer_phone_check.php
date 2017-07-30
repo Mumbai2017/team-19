@@ -3,7 +3,7 @@ session_start();
   
 
 // include("connection.php");
- $conn = new mysqli('localhost','root','','sanisa_team19');
+ $conn = new mysqli('localhost','root','','team_19');
 
 if(isset($_POST['phone_no']))
 {

@@ -7,7 +7,7 @@ $ADMIN_EMAIL = "admin";
 $ADMIN_PASSWORD = "admin";
 
 // require 'functions.php';
- $conn = new mysqli('localhost','root','','sanisa_team19');
+ $conn = new mysqli('localhost','root','','team_19');
 
 $email = $_POST['username'];
 $password = $_POST['pwd'];
@@ -24,11 +24,11 @@ $usertab = $conn->query($usertab1);
 // setcookie('name', $value['Name'], time()+(86400*10), '/');
 
 // }
-if($email==$ADMIN_EMAIL and $password==$ADMIN_PASSWORD){
+if($email=='admin' && $password=='admin'){
     // setcookie('userid', $row['user_id'], time()+(86400+10), '/');
     setcookie('name', 'admin', time()+(86400*10), '/');
     setcookie('username', $email, time()+(86400*10), '/');
-        header('location: #');   
+        header('location: ../pages/production_dashboard.php');   
 }
 
 elseif ($usertab!=null){
