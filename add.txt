@@ -1,0 +1,38 @@
+<?php
+ $conn = new mysqli('localhost','root','','sanisa_team19');
+if(isset($_POST['p_id'])&&isset($_POST['quantity']))
+{
+	$p_id = $_POST['p_id'];
+	$quantity = $_POST['quantity'];
+$sql = "INSERT INTO orders(c_id,p_id,quantity,status) values('3','$p_id','$quantity','1')";
+$result = $conn->query($sql);
+
+}
+else
+if(isset($_POST['p_id1'])&&isset($_POST['quantity1']))
+{
+	$p_id = $_POST['p_id'];
+	$quantity = $_POST['quantity1'];
+$sql = "INSERT INTO orders(c_id,p_id,quantity,status) values('3','$p_id','$quantity','1')";
+$result = $conn->query($sql);
+
+}
+else
+if(isset($_POST['p_id2'])&&isset($_POST['quantity2']))
+{
+	$p_id = $_POST['p_id'];
+	$quantity = $_POST['quantity2'];
+$sql = "INSERT INTO orders(c_id,p_id,quantity,status) values('3','$p_id','$quantity','1')";
+$result = $conn->query($sql);
+
+}
+else
+if(isset($_POST['p_id3'])&&isset($_POST['quantity3']))
+{
+	$p_id = $_POST['p_id'];
+	$quantity = $_POST['quantity3'];
+$sql = "INSERT INTO orders(c_id,p_id,quantity,status) values('3','$p_id','$quantity','1')";
+$result = $conn->query($sql);
+
+}
+$conn->query($sql);

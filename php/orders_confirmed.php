@@ -1,24 +1,40 @@
 <?php
  $conn = new mysqli('localhost','root','','sanisa_team19');
- session_start();
+if(isset($_POST['p_id'])&&isset($_POST['quantity']))
+{
+	$p_id = $_POST['p_id'];
+	$quantity = $_POST['quantity'];
+$sql = "INSERT INTO orders(c_id,p_id,quantity,status) values('3','$p_id','$quantity','1')";
+$result = $conn->query($sql);
 
-$phone = $_SESSION['phone'];
-// print_r($phone);
-$quantity = $_POST['quantity'];
-$pid = $_POST['p_id'];
-// $sql1 = "Select c_id from customer where phone_no = '$phone'";
-// $cid = $conn->query($sql1);
-// while ($row = $cid->fetch_assoc()) {
-//     echo $row['c_id'];
+}
+else
+if(isset($_POST['p_id1'])&&isset($_POST['quantity1']))
+{
+	$p_id = $_POST['p_id'];
+	$quantity = $_POST['quantity1'];
+$sql = "INSERT INTO orders(c_id,p_id,quantity,status) values('3','$p_id','$quantity','1')";
+$result = $conn->query($sql);
 
-// $cid1 = mysqli_fetch_assoc($cid);
-// echo $cid;
-// $sql2 = "Select * from product where p_id = '$pid'";
-// $run = $conn->query($sql2);
-// $run1 = (int)$run['p_cost'];
-// $total = $quantity * $run; 
-echo 'Order Placed';
-$sql = "Insert into orders(c_id, p_id, quantity, status) values ('1', '$pid', '$quantity', 0)";
+}
+else
+if(isset($_POST['p_id2'])&&isset($_POST['quantity2']))
+{
+	$p_id = $_POST['p_id'];
+	$quantity = $_POST['quantity2'];
+$sql = "INSERT INTO orders(c_id,p_id,quantity,status) values('3','$p_id','$quantity','1')";
+$result = $conn->query($sql);
+
+}
+else
+if(isset($_POST['p_id3'])&&isset($_POST['quantity3']))
+{
+	$p_id = $_POST['p_id'];
+	$quantity = $_POST['quantity3'];
+$sql = "INSERT INTO orders(c_id,p_id,quantity,status) values('3','$p_id','$quantity','1')";
+$result = $conn->query($sql);
+
+}
 $conn->query($sql);
 // }
 
@@ -50,6 +66,8 @@ $conn->query($sql);
       }
 
 ?>
+
+<input type="number" name="index" id="index">
 
 <script type="text/javascript">
     var source = "<?php echo $c_address?>";
@@ -90,6 +108,7 @@ $conn->query($sql);
                     
                 }
               }
+
         console.log("Distance : "+min+", index : "+index);
             }
           });
@@ -102,3 +121,10 @@ $conn->query($sql);
   </script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMxdGmGa60mA7EV-iPYauPrj9XB35qA6Q">
   </script>
+
+  <?php
+  if(isset($_POST['c_address']))
+  {
+$sql = ""
+
+  }
