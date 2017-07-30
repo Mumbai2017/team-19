@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 29, 2017 at 02:26 PM
+-- Generation Time: Jul 30, 2017 at 03:22 AM
 -- Server version: 10.1.24-MariaDB
 -- PHP Version: 7.1.6
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `sanisa_team19`
+-- Database: `team_19`
 --
 
 -- --------------------------------------------------------
@@ -33,16 +33,29 @@ CREATE TABLE `customer` (
   `phone_no` int(10) NOT NULL,
   `c_name` varchar(50) NOT NULL,
   `c_address` varchar(100) NOT NULL,
-  `landmark` varchar(50) NOT NULL
+  `landmark` varchar(50) NOT NULL,
+  `c_latitude` double NOT NULL,
+  `c_longitude` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`c_id`, `phone_no`, `c_name`, `c_address`, `landmark`) VALUES
-(1, 1234567891, 'ABC', 'mulund', 'mulund'),
-(2, 1234567891, 'ABCD', 'mulund', 'mulund');
+INSERT INTO `customer` (`c_id`, `phone_no`, `c_name`, `c_address`, `landmark`, `c_latitude`, `c_longitude`) VALUES
+(1, 1234567891, 'ABC', 'mulund', 'mulund', 19.1565, 72.9638),
+(2, 1234567891, 'ABCD', 'mulund', 'mulund', 0, 0),
+(3, 182739, 'njakd', 'jasjkal', '', 17, 90),
+(5, 0, '', '', '', 0, 0),
+(6, 0, '', '', '', 0, 0),
+(7, 0, '', '', '', 0, 0),
+(8, 0, '', '', '', 0, 0),
+(9, 0, '', '', '', 0, 0),
+(10, 0, '', '', '', 0, 0),
+(11, 0, '', '', '', 0, 0),
+(12, 0, '', '', '', 0, 0),
+(13, 0, '', '', '', 0, 0),
+(14, 0, '', '', '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -67,7 +80,11 @@ CREATE TABLE `orders` (
 
 INSERT INTO `orders` (`o_id`, `c_id`, `p_id`, `s_id`, `quantity`, `o_total`, `del_date`, `status`) VALUES
 (1, 1, 1, 1, 1, 100, '31-07-2017', 1),
-(2, 2, 2, 2, 1, 150, '01-08-2017', 2);
+(2, 2, 2, 2, 1, 150, '01-08-2017', 2),
+(8, 5, 2, 0, 6, 0, '', 0),
+(11, 1, 1, 0, 7, 0, '', 0),
+(12, 1, 3, 0, 5, 0, '', 0),
+(14, 1, 2, 0, 6, 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -107,16 +124,19 @@ CREATE TABLE `sakhi` (
   `s_name` varchar(50) NOT NULL,
   `s_username` varchar(50) NOT NULL,
   `s_password` varchar(50) NOT NULL,
-  `s_address` varchar(100) NOT NULL
+  `s_address` varchar(100) NOT NULL,
+  `latitude` double NOT NULL,
+  `logitude` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `sakhi`
 --
 
-INSERT INTO `sakhi` (`s_id`, `s_name`, `s_username`, `s_password`, `s_address`) VALUES
-(1, 'sakabc', 'sakabc', '123', 'thane'),
-(2, 'sakabc', 'sakabc', '123', 'thane');
+INSERT INTO `sakhi` (`s_id`, `s_name`, `s_username`, `s_password`, `s_address`, `latitude`, `logitude`) VALUES
+(1, 'sakabc', 'sakabc', '123', 'thane', 0, 0),
+(2, 'sakabc', 'sakabc', '123', 'thane', 0, 0),
+(3, 'sakhi', 'monkey', 'monkey', '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -137,7 +157,11 @@ CREATE TABLE `sakhi_inventory` (
 
 INSERT INTO `sakhi_inventory` (`s_id`, `p_id`, `s_quantity`, `last_update`) VALUES
 (1, 1, 3, '29-07-2017'),
-(2, 2, 10, '28-07-2017');
+(2, 2, 10, '28-07-2017'),
+(3, 3, 5, ''),
+(1, 4, 6, ''),
+(2, 8, 6, ''),
+(1, 9, 8, '');
 
 --
 -- Indexes for dumped tables
@@ -155,8 +179,7 @@ ALTER TABLE `customer`
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`o_id`),
   ADD KEY `cid_fk` (`c_id`),
-  ADD KEY `pid_fk` (`p_id`),
-  ADD KEY `sid_fk` (`s_id`);
+  ADD KEY `pid_fk` (`p_id`);
 
 --
 -- Indexes for table `product`
@@ -185,12 +208,12 @@ ALTER TABLE `sakhi_inventory`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `c_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `o_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `o_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `product`
 --
@@ -200,7 +223,7 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT for table `sakhi`
 --
 ALTER TABLE `sakhi`
-  MODIFY `s_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `s_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
 --
@@ -210,8 +233,7 @@ ALTER TABLE `sakhi`
 --
 ALTER TABLE `orders`
   ADD CONSTRAINT `cid_fk` FOREIGN KEY (`c_id`) REFERENCES `customer` (`c_id`),
-  ADD CONSTRAINT `pid_fk` FOREIGN KEY (`p_id`) REFERENCES `product` (`p_id`),
-  ADD CONSTRAINT `sid_fk` FOREIGN KEY (`s_id`) REFERENCES `sakhi` (`s_id`);
+  ADD CONSTRAINT `pid_fk` FOREIGN KEY (`p_id`) REFERENCES `product` (`p_id`);
 
 --
 -- Constraints for table `sakhi_inventory`
