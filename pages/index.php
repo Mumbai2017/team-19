@@ -299,7 +299,7 @@ $k++;
                     <!-- /.panel -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Bar Chart Example
+                            <i class="fa fa-bar-chart-o fa-fw"></i> Sakhi's Inventory
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -366,7 +366,7 @@ $k++;
                         <div class="panel-body">
                             
                         <?php 
-                        $conn = new mysqli('localhost','root','','sanisa_team19');
+                        $conn = new mysqli('localhost','root','','team_19');
                         $qu = "Select * from orders";
                         $result = $conn->query($qu);
                         foreach ($result as $key => $row) { ?>

@@ -1,3 +1,43 @@
+<?php
+$conn = new mysqli('localhost','root','','team_19');
+$sql = "SELECT * FROM orders where status=1";
+$result = $conn->query($sql);
+$i = 0;
+if($result->num_rows >0)
+{
+    while($row = $result->fetch_assoc())
+    {
+
+$i++;
+}
+}
+
+$sql1 = "SELECT * FROM orders where status=2";
+$result1 = $conn->query($sql1);
+$j = 0;
+if($result1->num_rows >0)
+{
+    while($row = $result1->fetch_assoc())
+    {
+
+$j++;
+}
+}
+
+$sql2 = "SELECT * FROM orders where status=3";
+$result2 = $conn->query($sql2);
+$k = 0;
+if($result2->num_rows >0)
+{
+    while($row = $result2->fetch_assoc())
+    {
+
+$k++;
+}
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -109,7 +149,7 @@
                 
                 <!-- /.dropdown -->
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="../logout.php">
                         <i class=" glyphicon glyphicon-log-out"></i> 
                     </a>
                     
@@ -124,10 +164,18 @@
                     <ul class="nav" id="side-menu">
                         
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="production_dashboard.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                        
-                        
+                        <li>
+                            <a href="../info/sakhi.php"><i class="fa fa-user fa-fw"></i> Sakhi Details</a>
+                        </li>
+                        <li>
+                            <a href="../info/customerinfo.php"><i class="fa fa-cog fa-fw"></i> Customer Details</a>
+                        </li>
+                        <li>
+                            <a href="../info/inventory.php"><i class="fa fa-cog fa-fw"></i> Inventory Details</a>
+                        </li>
                        
                     </ul>
                 </div>
@@ -153,7 +201,7 @@
                                     <i class="fa fa-comments fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
+                                    <div class="huge"><?php echo $i;?></div>
                                     <div>New Orders!</div>
                                 </div>
                             </div>
@@ -175,7 +223,7 @@
                                     <i class="fa fa-tasks fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">12</div>
+                                    <div class="huge"><?php echo $j;?></div>
                                     <div>Pending Orders!</div>
                                 </div>
                             </div>
@@ -197,7 +245,7 @@
                                     <i class="fa fa-shopping-cart fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">124</div>
+                                    <div class="huge"><?php echo $k;?></div>
                                     <div>Delivered Orders!</div>
                                 </div>
                             </div>
@@ -237,34 +285,7 @@
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-8">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Locate Sakhis
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div id="morris-area-chart"></div>
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Heat Map
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="row">
-                                 
-                                <div class="col-lg-12">
-                                    <div id="morris-bar-chart"></div>
-                                </div>
-                                <!-- /.col-lg-8 (nested) -->
-                            </div>
-                            <!-- /.row -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
+                    
                     <!-- /.panel -->
                    <div class="panel panel-default">
                         <div class="panel-heading">
@@ -274,11 +295,48 @@
                         <div class="panel-body">
                             <div class="row">
                                  
-                                <div class="col-lg-12">
-                                   <div id ="chartID"></div>
-                                    <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
-                                    <script type="text/javascript" src="../dist/js/barchart.js"></script>
-                                </div>
+                                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>  
+                                   <script type="text/javascript">  
+
+                              // Load the Visualization API and the corechart package.
+                              google.charts.load('current', {'packages':['corechart']});
+
+                              // Set a callback to run when the Google Visualization API is loaded.
+                              google.charts.setOnLoadCallback(drawChart);
+
+                              // Callback that creates and populates a data table,
+                              // instantiates the pie chart, passes in the data and
+                              // draws it.
+                              function drawChart() {
+
+                                // Create the data table.
+                                var data = google.visualization.arrayToDataTable([
+                                ['Products','Quantity'],
+                                <?php
+                            $conn = new mysqli('localhost','root','','team_19');
+
+                                $query = "SELECT p_id, sum(quantity) quan FROM orders group by p_id";
+                                $result = $conn->query($query);
+                                while($row=mysqli_fetch_array($result)){
+                                    echo "['".$row['p_id']."',".$row['quan']."],";  
+                                }
+                                ?>
+                                ]);
+
+                                // Set chart options
+                                var options = {'title':'Products vs Quantity'};
+
+                                // Instantiate and draw our chart, passing in some options.
+                                var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+                                chart.draw(data, options);
+                              }
+                              jQuery(document).ready(function(){
+                                  jQuery(window).resize(function(){
+                                      drawChart();
+                                  });
+                              });
+                            </script>
+                            <div id="chart_div" style="width:100%; height:100%"></div>
                                 <!-- /.col-lg-8 (nested) -->
                             </div>
                             <!-- /.row -->

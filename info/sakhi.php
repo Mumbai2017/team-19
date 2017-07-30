@@ -143,14 +143,17 @@ table#t01 th {
                     <ul class="nav" id="side-menu">
                         
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                            <a href="../pages/production_dashboard.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                        
                         <li>
-                            <a href="tables.html"><i class="fa fa-user fa-fw"></i> Profile</a>
+                            <a href="sakhi.php"><i class="fa fa-user fa-fw"></i> Sakhi Details</a>
                         </li>
                         <li>
-                            <a href="forms.html"><i class="fa fa-cog fa-fw"></i> Settings</a>
+                            <a href="customerinfo.php"><i class="fa fa-cog fa-fw"></i> Customer Details</a>
+                        </li>
+                        <li>
+                            <a href="inventory.php"><i class="fa fa-cog fa-fw"></i> Inventory Details</a>
                         </li>
                        
                     </ul>
