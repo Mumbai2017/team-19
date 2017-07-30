@@ -42,14 +42,14 @@
                 <div class="col-lg-12">
                     <div class="intro-message">
                         <h1>Sa'Ni'Sa</h1>
-                        <h3>Priviledged are those who support the less Priviledge !</h3>
+                        <h3>Privileged are those who support the less Privileged !</h3>
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
                             <li>
                                 <a class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal"> <span class="network-name">Place Order</span></a>
                             </li>
                                                         <li>
-                                <a href="tracking.php" class="btn btn-default btn-lg"> <span class="network-name">Track Order</span></a>
+                                <a class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal2"> <span class="network-name">Track Order</span></a>
                             </li>
                             <li>
                                 <a href="volunteer.php" class="btn btn-default btn-lg"><span class="network-name">Volunteer</span></a>
@@ -76,6 +76,28 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Please Enter your contact</h4>
+        </div>
+        <div class="modal-body">
+        <form class="form-horizontal" action="php/customer_phone_check.php" method="POST">
+          <p><input type="number" class="form-control" id="phone_no" placeholder="Enter Phone" name="phone_no" required>
+          <br><button type="Submit" class="btn btn-default">Submit</button>
+          </p>
+        </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Please Enter your contact to Track order</h4>
         </div>
         <div class="modal-body">
         <form class="form-horizontal" action="php/customer_phone_check.php" method="POST">

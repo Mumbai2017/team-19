@@ -1,4 +1,5 @@
 <?php
+$conn = new mysqli('localhost','root','','team_19');
 if(isset($_POST['phone_no']))
 {
 $phone = $_POST['phone_no'];

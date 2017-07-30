@@ -1,5 +1,5 @@
 <?php 
-      $conn = new mysqli('localhost','root','','sanisa_team19');
+      $conn = new mysqli('localhost','root','','team_19');
       $sql = "SELECT * FROM customer WHERE c_id=1";
       $result = $conn->query($sql);
       if($result->num_rows >0){
